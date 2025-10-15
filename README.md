@@ -1,2 +1,533 @@
-# profactory
-web
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProFactory: Sistema de Transformación Digital para Profesionales</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de la tipografía y colores -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'accent-primary': '#0070D7', // Primary Blue
+                        'accent-light': '#008CFF',  // Lighter/Brighter Blue for CTA/Hover
+                        'neutral-bg': '#F9FAFB',    // Gray 50
+                    },
+                    fontFamily: {
+                        // Nueva tipografía solicitada
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Noto Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para un mejor aspecto */
+        .section-padding {
+            padding: 4rem 1rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 4rem;
+            }
+        }
+        .text-shadow-custom {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white">
+
+    <!-- Navegación Fija -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#inicio" class="text-2xl font-bold text-accent-primary">
+                    🏭 ProFactory
+                </a>
+                
+                <!-- Botón de Menú Móvil -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-primary" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+
+                <!-- Menú Desktop -->
+                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                    <a href="#inicio" class="text-gray-600 hover:text-accent-primary transition duration-300">Inicio</a>
+                    <a href="#modulos" class="text-gray-600 hover:text-accent-primary transition duration-300">Módulos</a>
+                    <a href="#metodologia" class="text-gray-600 hover:text-accent-primary transition duration-300">Metodología</a>
+                    <a href="#recursos" class="text-gray-600 hover:text-accent-primary transition duration-300">Recursos</a>
+                    <a href="#creador" class="text-gray-600 hover:text-accent-primary transition duration-300">El Creador</a>
+                    <a href="#contacto" class="text-white bg-accent-primary hover:bg-accent-light px-4 py-2 rounded-xl transition duration-300 shadow-lg">Test de Producto</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-start">
+                <a href="#inicio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 w-full">Inicio</a>
+                <a href="#modulos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 w-full">Módulos</a>
+                <a href="#metodologia" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 w-full">Metodología</a>
+                <a href="#recursos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 w-full">Recursos</a>
+                <a href="#creador" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-100 w-full">El Creador</a>
+                <a href="#diagnosis" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-accent-primary mt-2 w-full text-center">Test de Producto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Inicio (Home) - Foco en el Sistema -->
+    <section id="inicio" class="section-padding bg-neutral-bg">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-xl font-semibold text-accent-primary uppercase tracking-wider mb-3">Presentamos el Sistema</p>
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-gray-900 mb-6">
+                <span class="text-accent-primary">ProFactory:</span> Transforma tu Servicio en un Producto Digital Escalable.
+            </h1>
+            <p class="text-2xl md:text-3xl font-light text-gray-600 mb-10 max-w-4xl mx-auto">
+                De vender tu tiempo a generar **valor que se multiplica solo** con la potencia de la metodología ágil y la automatización.
+            </p>
+            
+            <!-- Hero CTA -->
+            <a href="#diagnosis" class="inline-block bg-accent-light hover:bg-accent-primary text-white text-xl font-bold py-4 px-10 rounded-2xl transition duration-300 transform hover:scale-105 shadow-xl shadow-blue-300/50">
+                👉 Descubrí tu Potencial de Producto Ahora
+            </a>
+
+            <!-- Enfoque (Pilares del Producto) -->
+            <div class="mt-16 pt-12 border-t border-gray-200">
+                <h2 class="text-3xl font-bold mb-4">Los 3 Pilares de ProFactory</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Nuestro sistema está fundado en metodologías probadas para el desarrollo de productos.
+                </p>
+            </div>
+
+            <!-- Tres Beneficios Principales (Resultados del Producto) -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-accent-primary mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-3">Propuesta de Valor Definida</h3>
+                    <p class="text-gray-600">Obtenés claridad absoluta para un producto que resuelve un problema específico y diferencial (Design Thinking).</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-accent-primary mb-4">🛠️</div>
+                    <h3 class="text-xl font-semibold mb-3">MVP Validado y Rentable</h3>
+                    <p class="text-gray-600">Lanzás tu Producto Mínimo Viable rápidamente, minimizando riesgos y obteniendo ingresos iniciales (Lean Startup).</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition duration-300">
+                    <div class="text-5xl text-accent-primary mb-4">🚀</div>
+                    <h3 class="text-xl font-semibold mb-3">Crecimiento Automatizado</h3>
+                    <p class="text-gray-600">Diseñás y ejecutas un sistema de contenidos y ventas que funciona 24/7 con herramientas de IA y No-Code.</p>
+                </div>
+            </div>
+
+            <!-- Testimonios Mock -->
+            <div class="mt-20 border-t pt-10 border-gray-200">
+                <h2 class="text-3xl font-bold mb-8">Resultados de ProFactory</h2>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-2xl shadow-2xl border-l-4 border-accent-primary">
+                    <p class="text-xl italic text-gray-700 mb-6">"Implementar el sistema ProFactory me permitió empaquetar 5 años de conocimiento en un curso y triplicar mi alcance sin sumar horas de trabajo."</p>
+                    <p class="font-semibold text-accent-primary">- Martín P., Consultor de RRHH</p>
+                </div>
+            </div>
+
+            <!-- CTA Final -->
+            <div class="mt-20">
+                <a href="#diagnosis" class="inline-block bg-accent-primary hover:bg-blue-800 text-white text-2xl font-semibold py-4 px-12 rounded-full transition duration-300 shadow-xl">
+                    Iniciá tu test de escalabilidad gratuito
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Módulos y Resultados (Antes: Servicios) -->
+    <section id="modulos" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-900">Módulos de ProFactory: De Diagnóstico a Crecimiento</h2>
+            
+            <!-- Herramientas Automáticas (Módulos de Inicio) -->
+            <h3 class="text-2xl font-bold text-accent-primary mb-8 border-b-2 border-accent-primary/50 pb-2">🔹 Módulos de Diagnóstico y Planificación Automática</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Diagnóstico de Producto -->
+                <div class="p-6 bg-neutral-bg rounded-2xl shadow-lg flex flex-col justify-between">
+                    <div class="mb-4">
+                        <h4 class="text-xl font-bold mb-2">Test de Potencial de Producto</h4>
+                        <p class="text-gray-600">Herramienta clave para encontrar oportunidades de producto en tu conocimiento base.</p>
+                    </div>
+                    <a href="#diagnosis" class="text-accent-light font-semibold hover:underline mt-4">→ [Iniciar test gratuito]</a>
+                </div>
+                <!-- Mapa de Transformación -->
+                <div class="p-6 bg-neutral-bg rounded-2xl shadow-lg">
+                    <h4 class="text-xl font-bold mb-2">Mapa de Ruta ProFactory</h4>
+                    <p class="text-gray-600">Visualizá el recorrido completo, desde la ideación hasta la monetización a gran escala.</p>
+                </div>
+                <!-- Auditoría Digital -->
+                <div class="p-6 bg-neutral-bg rounded-2xl shadow-lg">
+                    <h4 class="text-xl font-bold mb-2">Auditoría de Sistemas Digitales</h4>
+                    <p class="text-gray-600">Revisión automática para identificar puntos de fuga en tu posicionamiento y automatización.</p>
+                </div>
+            </div>
+
+            <!-- Consultorías y mentorías (Módulos de Aceleración) -->
+            <h3 class="text-2xl font-bold text-accent-primary mb-8 border-b-2 border-accent-primary/50 pb-2">🔹 Aceleración 1:1 (Soporte Intensivo del Creador)</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                <!-- Consultoría 1:1 -->
+                <div class="p-8 bg-white rounded-2xl shadow-xl border border-gray-200">
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Sesión Estratégica: Diseño de MVP</h4>
+                    <p class="text-gray-600">Soporte directo para refinar tu propuesta, definir el precio y diseñar tu primer MVP (Producto Mínimo Viable).</p>
+                    <a href="#contacto" class="inline-block mt-4 text-sm font-semibold text-white bg-accent-primary py-2 px-4 rounded-full hover:bg-blue-800 transition duration-300">Reservar Sesión Personalizada</a>
+                </div>
+                <!-- Mentoría de Automatización -->
+                <div class="p-8 bg-white rounded-2xl shadow-xl border border-gray-200">
+                    <h4 class="text-2xl font-bold mb-3 text-gray-900">Mentoría de Implementación del Módulo de IA</h4>
+                    <p class="text-gray-600">Construcción y optimización de tus flujos de marketing y distribución con enfoque en IA y eficiencia.</p>
+                    <a href="#contacto" class="inline-block mt-4 text-sm font-semibold text-white bg-accent-primary py-2 px-4 rounded-full hover:bg-blue-800 transition duration-300">Solicitar Información</a>
+                </div>
+            </div>
+
+            <!-- Herramientas y laboratorios digitales (Módulos de Ejecución) -->
+            <h3 class="text-2xl font-bold text-accent-primary mb-8 border-b-2 border-accent-primary/50 pb-2">🔹 Módulos de Ejecución y Herramientas Operativas</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="p-5 bg-neutral-bg rounded-xl shadow">
+                    <h4 class="font-semibold mb-1">Taller “Diseñá tu Producto Digital en 5 Pasos”</h4>
+                    <p class="text-sm text-gray-600">Entrenamiento práctico para la creación de tu primer activo.</p>
+                </div>
+                <div class="p-5 bg-neutral-bg rounded-xl shadow">
+                    <h4 class="font-semibold mb-1">Canvas Interactivo de Propuesta de Valor</h4>
+                    <p class="text-sm text-gray-600">Herramienta online propia del sistema ProFactory.</p>
+                </div>
+                <div class="p-5 bg-neutral-bg rounded-xl shadow">
+                    <h4 class="font-semibold mb-1">MVP Lab – Laboratorio de Prototipado</h4>
+                    <p class="text-sm text-gray-600">Crea y testea tu producto en 30 días con acompañamiento guiado.</p>
+                </div>
+                <div class="p-5 bg-neutral-bg rounded-xl shadow">
+                    <h4 class="font-semibold mb-1">Toolbox de Automatización</h4>
+                    <p class="text-sm text-gray-600">Curaduría interna de apps y plataformas para el sistema ProFactory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Diagnóstico (Lead Magnet Central) - Renombrado a Test -->
+    <section id="diagnosis" class="section-padding bg-accent-primary/90 text-white">
+        <div class="max-w-3xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-shadow-custom">
+                Test de Escalabilidad: ¿Estás listo para crear tu producto?
+            </h2>
+            <p class="text-xl md:text-2xl font-light mb-10">
+                Completá este breve test y recibí un <span class="font-semibold">informe de perfil de producto gratuito</span> con tus primeras oportunidades.
+            </p>
+            
+            <!-- Simulación de Formulario de Diagnóstico -->
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl text-gray-800">
+                <h3 class="text-2xl font-bold mb-6 text-accent-primary">Iniciá tu Test de Perfil de Producto</h3>
+                <form id="diagnosis-form">
+                    <div class="space-y-4 mb-6">
+                        <input type="text" placeholder="Tu Nombre" required class="w-full p-4 border border-gray-300 rounded-xl focus:ring-accent-light focus:border-accent-light transition">
+                        <input type="email" placeholder="Tu Email Profesional" required class="w-full p-4 border border-gray-300 rounded-xl focus:ring-accent-light focus:border-accent-light transition">
+                        <select class="w-full p-4 border border-gray-300 rounded-xl focus:ring-accent-light focus:border-accent-light transition text-gray-500" required>
+                            <option value="" disabled selected>¿Cuál es tu área de especialidad?</option>
+                            <option value="consultoria">Consultoría/Mentoría</option>
+                            <option value="capacitacion">Capacitación/Formación</option>
+                            <option value="servicios">Servicios Creativos/Técnicos</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-accent-light hover:bg-accent-primary text-white text-lg font-bold py-4 rounded-xl transition duration-300 transform hover:scale-[1.01] shadow-lg">
+                        Recibir mi Informe Gratuito
+                    </button>
+                    <p class="text-sm text-gray-500 mt-4">Nos aseguramos de que tus datos estén seguros. Sin spam, prometido.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Recursos y herramientas -->
+    <section id="recursos" class="section-padding bg-neutral-bg">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-900">Recursos de ProFactory para la Transformación</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <!-- Guías Prácticas -->
+                <div class="p-6 bg-white rounded-2xl shadow-xl border-t-4 border-accent-light">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Guías Prácticas</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">📘</span>
+                            Cómo diseñar tu primer producto digital rentable (Guía Definitiva).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">⚙️</span>
+                            Los 5 errores comunes al automatizar tu negocio y cómo evitarlos.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">💰</span>
+                            Estrategias de pricing para productos basados en conocimiento.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Plantillas Descargables -->
+                <div class="p-6 bg-white rounded-2xl shadow-xl border-t-4 border-accent-light">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Plantillas Descargables</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">🖼️</span>
+                            Plantilla de Canvas de Propuesta de Valor (PDF/Miro).
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">✅</span>
+                            Checklist de Lanzamiento de MVP en 7 días.
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-accent-primary mr-3 text-xl">🗺️</span>
+                            Mapa de Proceso para la Creación de Flujos de Trabajo.
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Recomendaciones de Herramientas -->
+                <div class="p-6 bg-white rounded-2xl shadow-xl border-t-4 border-accent-light">
+                    <h3 class="text-2xl font-bold mb-4 text-gray-900">Toolbox Curado</h3>
+                    <p class="font-semibold text-gray-700 mb-2">Recomendaciones de herramientas digitales categorizadas:</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-600 text-sm">
+                        <li>Creación de Contenido (IA)</li>
+                        <li>Distribución y Social Media (Automatización)</li>
+                        <li>Automatización y Flujos de Trabajo (No-Code)</li>
+                        <li>Análisis y Métricas</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Metodología -->
+    <section id="metodologia" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-900">La Metodología ProFactory: El Proceso de 7 Fases</h2>
+            
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <p class="text-xl text-gray-600 italic">
+                    "ProFactory no es solo digitalizar, es crear una ventaja competitiva sostenible. Combina **pensamiento de diseño** (lo que el usuario necesita), **innovación ágil** (lo que funciona rápido) y **automatización inteligente** (lo que escala sin esfuerzo)."
+                </p>
+            </div>
+
+            <!-- Fases del Proceso -->
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 mt-16 text-center">
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-accent-primary text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">1</div>
+                    <p class="text-sm font-semibold">Diagnóstico</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">2</div>
+                    <p class="text-sm font-semibold">Definición de Oferta</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-400 text-white rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">3</div>
+                    <p class="text-sm font-semibold">Prototipado (MVP)</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-300 text-gray-800 rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">4</div>
+                    <p class="text-sm font-semibold">Validación Ágil</p>
+                </div>
+                 <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-200 text-gray-800 rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">5</div>
+                    <p class="text-sm font-semibold">Diseño de Sistemas</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-blue-100 text-gray-800 rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">6</div>
+                    <p class="text-sm font-semibold">Implementación (IA)</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 bg-gray-200 text-gray-800 rounded-full flex items-center justify-center font-bold text-2xl mb-2 shadow-md">7</div>
+                    <p class="text-sm font-semibold">Crecimiento Continuo</p>
+                </div>
+            </div>
+
+            <!-- Mención de Resultados -->
+            <div class="mt-20 p-8 bg-neutral-bg rounded-2xl text-center">
+                <h3 class="text-2xl font-bold mb-4">Validado por la Experiencia</h3>
+                <p class="text-lg text-gray-600">Este proceso ha sido refinado con profesionales de MediaLab, NYU, Fopea y diversas instituciones, garantizando una hoja de ruta probada y efectiva.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. Sobre mí (Renombrado a El Creador) -->
+    <section id="creador" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            
+            <div class="lg:col-span-2">
+                <h2 class="text-4xl font-extrabold mb-8 text-gray-900">El Creador de ProFactory: Expertis al Servicio del Sistema</h2>
+                
+                <p class="text-lg mb-6 text-gray-700">El sistema **ProFactory** nace de la experiencia de transformar una carrera profesional en el periodismo y la gestión de audiencias en una consultoría de sistemas escalables. Entendí que la clave no es la consultoría, sino el **sistema replicable** que la soporta.</p>
+                
+                <p class="text-lg mb-6 text-gray-700">Mi misión es simple: proveerte del método, las herramientas y la estrategia para que tu conocimiento se convierta en tu principal activo de negocio. Dejo de vender tiempo para ayudarte a **construir autonomía**.</p>
+                
+                <h3 class="text-xl font-bold mb-3 text-accent-primary">Base de Conocimiento y Desarrollo:</h3>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>Experiencia en Liderazgo e Innovación (MediaLab).</li>
+                    <li>Desarrollo de Producto Digital (NYU).</li>
+                    <li>Proyectos con Fopea y otras entidades de prestigio.</li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-1 text-center">
+                <!-- Image Placeholder -->
+                <div class="w-64 h-64 mx-auto bg-gray-200 rounded-full overflow-hidden flex items-center justify-center shadow-2xl border-4 border-white">
+                    <svg class="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4a4 4 0 014 4 4 4 0 01-4 4 4 4 0 01-4-4 4 4 0 014-4zM16 16h3v1a3 3 0 01-3 3H8a3 3 0 01-3-3v-1h3v-1a4 4 0 014-4 4 4 0 014 4v1z"></path></svg>
+                </div>
+                <blockquote class="mt-8 text-xl italic font-semibold text-gray-800">
+                    "ProFactory es mi método para darte impacto y autonomía."
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Agenda / Contacto -->
+    <section id="contacto" class="section-padding bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-extrabold mb-4 text-gray-900">Pasá a la Acción con ProFactory</h2>
+            <p class="text-xl text-gray-600 mb-12">Tomá el primer módulo: reservá tu sesión estratégica o realizá el test de perfil de producto.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Agenda Automática -->
+                <div class="p-8 bg-neutral-bg rounded-2xl shadow-lg border-t-4 border-accent-primary">
+                    <h3 class="text-2xl font-bold mb-4">Módulo Aceleración 1:1</h3>
+                    <p class="mb-4 text-gray-600">Si tu diagnóstico ya está claro, acelerá con una sesión directa de diseño de MVP.</p>
+                    <a href="https://calendly.com/tucalendario" target="_blank" class="w-full inline-block bg-accent-light hover:bg-accent-primary text-white font-bold py-3 rounded-xl transition duration-300">
+                        Reservar Sesión Estratégica (Simulación)
+                    </a>
+                </div>
+
+                <!-- Formulario de Contacto -->
+                <div class="p-8 bg-neutral-bg rounded-2xl shadow-lg border-t-4 border-accent-primary">
+                    <h3 class="text-2xl font-bold mb-4">Soporte del Sistema ProFactory</h3>
+                    <form>
+                        <input type="text" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-lg mb-3">
+                        <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg mb-3">
+                        <textarea placeholder="Tu consulta sobre ProFactory..." rows="3" class="w-full p-3 border border-gray-300 rounded-lg mb-4"></textarea>
+                        <button type="submit" class="w-full bg-accent-primary hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition duration-300">
+                            Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Newsletter CTA -->
+            <div class="mt-12 p-6 bg-accent-primary/10 rounded-xl">
+                <h4 class="text-xl font-bold text-gray-800 mb-2">Suscribite a la Bitácora de ProFactory</h4>
+                <p class="text-gray-600 mb-4">Recibí tips, guías y casos de estudio sobre automatización y producto digital.</p>
+                <form class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
+                    <input type="email" placeholder="Tu email para la newsletter" class="flex-grow p-3 border border-gray-300 rounded-lg">
+                    <button type="submit" class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                        Suscribirme
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Blog / Bitácora de Transformación (Simple Section) -->
+    <section id="blog" class="section-padding bg-neutral-bg">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-extrabold text-center mb-16 text-gray-900">Bitácora de ProFactory</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Post 1 -->
+                <a href="#" class="block bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent-primary">Módulo MVP</span>
+                        <h3 class="text-xl font-bold mt-2 mb-3 group-hover:text-accent-light">Cómo pasar de servicio a producto sin perder la personalización.</h3>
+                        <p class="text-gray-600 text-sm">El dilema de la escalabilidad: las claves para empaquetar tu expertise sin diluir el valor.</p>
+                    </div>
+                </a>
+                <!-- Post 2 -->
+                <a href="#" class="block bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent-primary">Módulo IA</span>
+                        <h3 class="text-xl font-bold mt-2 mb-3 group-hover:text-accent-light">Herramientas IA para consultores: Libera el 80% de tu carga administrativa.</h3>
+                        <p class="text-gray-600 text-sm">Una curaduría de plataformas de Inteligencia Artificial que optimizarán tus flujos de trabajo.</p>
+                    </div>
+                </a>
+                <!-- Post 3 -->
+                <a href="#" class="block bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="p-6">
+                        <span class="text-sm font-semibold text-accent-primary">Metodología</span>
+                        <h3 class="text-xl font-bold mt-2 mb-3 group-hover:text-accent-light">Diseñá tu MVP sin programar: El enfoque Lean Startup para profesionales.</h3>
+                        <p class="text-gray-600 text-sm">Validá tu idea rápidamente con herramientas No-Code y reducí el riesgo de inversión.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="space-y-4">
+                <p class="text-xl font-bold">ProFactory | Sistema de Transformación Digital</p>
+                <div class="text-sm text-gray-400 space-x-4">
+                    <a href="#contacto" class="hover:text-accent-light">Contacto</a>
+                    <a href="#" class="hover:text-accent-light">Política de Privacidad</a>
+                    <a href="#" class="hover:text-accent-light">Términos y Condiciones</a>
+                </div>
+                <p class="text-sm text-gray-500 pt-4">&copy; 2024. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el menú móvil
+        document.addEventListener('DOMContentLoaded', () => {
+            const button = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            
+            // Función para alternar el menú
+            const toggleMenu = () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+                button.setAttribute('aria-expanded', !isExpanded);
+                menu.classList.toggle('hidden');
+            };
+
+            button.addEventListener('click', toggleMenu);
+
+            // Cerrar menú al hacer clic en un enlace (solo en móvil)
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!menu.classList.contains('hidden')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // Manejo de la simulación del formulario de diagnóstico
+            const diagnosisForm = document.getElementById('diagnosis-form');
+            if (diagnosisForm) {
+                diagnosisForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Simulación de envío
+                    const submitButton = diagnosisForm.querySelector('button[type="submit"]');
+                    submitButton.textContent = "¡Informe Enviado! Revisá tu Email.";
+                    submitButton.disabled = true;
+                    submitButton.classList.remove('bg-accent-light', 'hover:bg-teal-700');
+                    submitButton.classList.add('bg-green-600');
+                    
+                    // Mostrar mensaje de éxito simple (sustituye a alert())
+                    const successMessage = document.createElement('p');
+                    successMessage.textContent = '¡Gracias por completar! Te enviaremos tu informe de potencial de producto en breve.';
+                    successMessage.className = 'mt-4 text-sm text-green-700 font-semibold p-3 bg-green-100 rounded-lg';
+                    diagnosisForm.parentNode.insertBefore(successMessage, diagnosisForm.nextSibling);
+
+                    // Aquí iría la lógica real de envío de datos
+                    console.log('Formulario de diagnóstico simulado enviado.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
